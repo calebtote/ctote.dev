@@ -231,7 +231,7 @@ input, select, textarea {
 
     /* Set your background */
     filter: brightness(50%);
-    background: #1a1a1a url("images/bg.webp") bottom left;
+    background: #1a1a1a url("images/bg.jpg") bottom left;
     background-repeat: no-repeat; /* Prevent repeating */
     background-size: cover; /* Ensure it covers the viewport */
     background-attachment: fixed; /* Prevent scrolling */
