@@ -246,6 +246,16 @@ input, select, textarea {
     z-index: -1; /* Keep it behind other content */
 }
 
+/* Mobile Optimization */
+@media (max-width: 768px) {
+    #bg {
+        background-attachment: scroll; /* Fixed causes issues on mobile */
+        background-size: cover; /* Ensures full coverage */
+        background-position: center center; /* Center image properly */
+        height: 100vh; /* Ensure it takes full viewport height */
+    }
+}
+
 	@-moz-keyframes bg {
 		0% {
 			-moz-transform: translate3d(0,0,0);
