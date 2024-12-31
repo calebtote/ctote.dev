@@ -154,34 +154,6 @@ input, select, textarea {
 			font-family: 'Font Awesome 5 Brands';
 		}
 
-/* Resume Icon Container */
-.resume-icon {
-    position: relative;
-    display: inline-block;
-    text-align: center;
-}
-
-/* Hidden Text by Default */
-.resume-icon .hover-text {
-    position: absolute;
-    top: 100%; /* Place text directly below the icon */
-    left: 50%;
-    transform: translateX(-50%);
-    font-size: 0.9em;
-    color: #fff; /* Adjust color if needed */
-    opacity: 0;
-    transition: opacity 0.3s ease-in-out;
-    pointer-events: none; /* Prevent the text from interfering with clicks */
-    white-space: nowrap; /* Prevent text from wrapping */
-    margin-top: 5px; /* Small gap below the icon */
-}
-
-/* Show Text on Hover */
-.resume-icon:hover .hover-text {
-    opacity: 1;
-}
-
-
 /* Wrapper */
 
 	@-moz-keyframes wrapper {
