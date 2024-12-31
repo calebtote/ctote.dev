@@ -212,13 +212,20 @@ input, select, textarea {
 /* BG */
 
 	#bg {
-    /* Disable animations */
-    -moz-animation: none !important;
-    -webkit-animation: none !important;
-    -ms-animation: none !important;
-    animation: none !important;
+		-moz-animation: bg 60s linear infinite;
+		-webkit-animation: bg 60s linear infinite;
+		-ms-animation: bg 60s linear infinite;
+		animation: bg 60s linear infinite;
+		-moz-backface-visibility: hidden;
+		-webkit-backface-visibility: hidden;
+		-ms-backface-visibility: hidden;
+		backface-visibility: hidden;
+		-moz-transform: translate3d(0,0,0);
+		-webkit-transform: translate3d(0,0,0);
+		-ms-transform: translate3d(0,0,0);
+		transform: translate3d(0,0,0);
+	/* Set your background with this */
 
-<<<<<<< HEAD
 		background: #348cb2 url("images/bg.jpg") bottom left;
 		background-repeat: repeat-x;
 		height: 100%;
@@ -227,46 +234,6 @@ input, select, textarea {
 		position: fixed;
 		top: 0;
 	}
-=======
-    /* Ensure background stays fixed */
-    -moz-backface-visibility: hidden;
-    -webkit-backface-visibility: hidden;
-    -ms-backface-visibility: hidden;
-    backface-visibility: hidden;
-
-    -moz-transform: translate3d(0,0,0);
-    -webkit-transform: translate3d(0,0,0);
-    -ms-transform: translate3d(0,0,0);
-    transform: translate3d(0,0,0);
-
-    /* Set your background */
-    filter: brightness(50%);
-    background-image: none;
-    background: #1a1a1a; /* url("images/bg.jpg") bottom left; */
-    background-repeat: no-repeat; /* Prevent repeating */
-    background-size: cover; /* Ensure it covers the viewport */
-    background-attachment: fixed; /* Prevent scrolling */
-
-    /* Positioning */
-    height: 100%;
-    left: 0;
-    opacity: 1;
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: -1; /* Keep it behind other content */
-}
-
-/* Mobile Optimization */
-@media (max-width: 768px) {
-    #bg {
-        background-attachment: scroll; /* Fixed causes issues on mobile */
-        background-size: cover; /* Ensures full coverage */
-        background-position: center center; /* Center image properly */
-        height: 100vh; /* Ensure it takes full viewport height */
-    }
-}
->>>>>>> a6d4657a2fb5328b3a299b0afe8efb1c239c3f7c
 
 	@-moz-keyframes bg {
 		0% {
@@ -391,7 +358,7 @@ input, select, textarea {
 		background-size: auto, cover;
 		height: 100%;
 		left: 0;
-		opacity: 0.7;
+		opacity: 0;
 		position: fixed;
 		top: 0;
 		width: 100%;
