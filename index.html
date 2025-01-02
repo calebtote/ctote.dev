@@ -19,10 +19,16 @@
 						<p>Technical Director &nbsp;&bull;&nbsp; Cloud Architect &nbsp;&bull;&nbsp; SRE Enthusiast</p>
 						<nav>
 							<ul>
-								<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
-								<li><a href="#" class="icon brands fa-github"><span class="label">Github</span></a></li>
+								<li><a href="https://www.linkedin.com/in/calebtote" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
 								<li><a href="#" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
 								<li><a href="#" class="icon solid fa-file"><span class="label">Resume</span></a></li>
+								<li>
+								  <a href="javascript:void(0);" class="icon solid fa-envelope" id="copyEmail">
+								    <span class="label">Email</span>
+								  </a>
+								</li>
+								<div id="copyPopup" class="copy-popup">Copied!</div>
+
 							</ul>
 						</nav>
 					</header>
@@ -32,6 +38,15 @@
 			window.onload = function() { document.body.classList.remove('is-preload'); }
 			window.ontouchmove = function() { return false; }
 			window.onorientationchange = function() { document.body.scrollTop = 0; }
+			  document.getElementById('copyEmail').addEventListener('click', function () {
+			    navigator.clipboard.writeText('caleb.tote@gmail.com')
+			      .then(() => {
+				const popup = document.getElementById('copyPopup');
+				popup.classList.add('visible');
+				setTimeout(() => popup.classList.remove('visible'), 1500);
+			      })
+			      .catch(err => console.error('Failed to copy email: ', err));
+			  });
 		</script>
 	</body>
 </html>
