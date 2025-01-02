@@ -32,7 +32,7 @@
 							<a href="javascript:void(0);" class="icon solid fa-envelope" id="copyEmail">
 								<span class="label">Email</span>
 							</a>
-							<div id="copyPopup" class="copy-popup">Copied!</div>
+							<div id="copyPopup" class="copy-popup">Email copied!</div>
 						</li>									  
 					</ul>
 				</nav>
@@ -44,7 +44,7 @@
 		window.ontouchmove = function () { return false; }
 		window.onorientationchange = function () { document.body.scrollTop = 0; }
 		document.getElementById('copyEmail').addEventListener('click', function () {
-			navigator.clipboard.writeText('your.email@example.com').then(() => {
+			navigator.clipboard.writeText('caleb.tote@gmail.com').then(() => {
 				const popup = document.getElementById('copyPopup');
 				popup.style.display = 'block';
 				setTimeout(() => {
