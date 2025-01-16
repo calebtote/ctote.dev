@@ -2,17 +2,6 @@
 <html lang="en" class="no-js">
 
 <head>
-
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-YPS9WXPQTD"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'G-YPS9WXPQTD');
-  </script>
-
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Caleb Tote</title>
@@ -34,6 +23,16 @@
   <link rel="stylesheet" href="css/owl.carousel.css" type="text/css">
   <link rel="stylesheet" href="css/magnific-popup.css" type="text/css">
   <link rel="stylesheet" href="css/main.css" type="text/css">
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-YPS9WXPQTD"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-YPS9WXPQTD');
+  </script>
 </head>
 
 <body>
@@ -56,7 +55,7 @@
       <header id="site_header" class="header mobile-menu-hide">
         <div class="header-content">
           <div class="header-photo">
-            <img src="img/me.png" alt="Caleb Tote">
+            <img src="img/me.png" alt="Caleb Tote" loading="lazy">
           </div>
           <div class="header-titles">
             <h2>Caleb Tote</h2>
@@ -66,19 +65,19 @@
 
         <ul class="main-menu">
           <li class="active">
-            <a href="#home" class="nav-anim">
+            <a href="#home" class="nav-anim" onclick="gtag('event', 'click', { 'event_category': 'Navigation', 'event_label': 'Home' });">
               <span class="menu-icon lnr lnr-home"></span>
               <span class="link-text">Home</span>
             </a>
           </li>
           <li>
-            <a href="#about-me" class="nav-anim">
+            <a href="#about-me" class="nav-anim" onclick="gtag('event', 'click', { 'event_category': 'Navigation', 'event_label': 'About-Me' });">
               <span class="menu-icon lnr lnr-user"></span>
               <span class="link-text">About Me</span>
             </a>
           </li>
           <li>
-            <a href="#resume" class="nav-anim">
+            <a href="#resume" class="nav-anim" onclick="gtag('event', 'click', { 'event_category': 'Navigation', 'event_label': 'Resume' });">
               <span class="menu-icon lnr lnr-graduation-hat"></span>
               <span class="link-text">Resume</span>
             </a>
@@ -100,18 +99,19 @@
           </li>
           -->
           <li>
-            <a href="https://www.linkedin.com/in/calebtote" target="_blank" rel="noopener noreferrer"
-               class="external-link">
+            <a href="https://www.linkedin.com/in/calebtote" target="_blank" rel="noopener noreferrer" class="external-link"
+               onclick="gtag('event', 'click', { 'event_category': 'Button', 'event_label': 'LinkedIn-nav' });">
               <span class="menu-icon fab fa-linkedin-in"></span>
               <span class="link-text">LinkedIn<span class="external-icon">⧉</span></span>
             </a>
           </li>
           <li>
-            <a href="#" onclick="copyEmailToClipboard(event)">
+            <a href="#" class="email-link">
               <span class="menu-icon fas fa-envelope"></span>
               <span class="link-text">Email</span>
             </a>
           </li>
+
         </ul>
 
         <!--
@@ -122,9 +122,21 @@
             </div>
         -->
         <div class="header-buttons">
-          <a href="https://www.dropbox.com/scl/fi/vy2jtm68h5dtvlnje89wo/CalebTote_Resume.pdf?rlkey=n7y07rj5jyah4be6vli3zl4af&st=78ofbq0v&dl=1" class="btn btn-primary">Download CV</a>
+          <a href="https://www.dropbox.com/scl/fi/vy2jtm68h5dtvlnje89wo/CalebTote_Resume.pdf?rlkey=n7y07rj5jyah4be6vli3zl4af&st=78ofbq0v&dl=1"
+             class="btn btn-primary"
+             onclick="gtag('event', 'click', { 'event_category': 'Button', 'event_label': 'Download-CV' });">
+            Download CV
+          </a>
         </div>
-        <h4><a href="https://linkedin.com/in/calebtote" target="_blank">LinkedIn</a></h4>
+        <h4>
+          <a href="https://linkedin.com/in/calebtote"
+             target="_blank"
+             rel="noopener noreferrer"
+             onclick="gtag('event', 'click', { 'event_category': 'Button', 'event_label': 'LinkedIn-main' });">
+            LinkedIn
+          </a>
+        </h4>
+
 
         <div class="copyrights">© 2025 All rights reserved.</div>
       </header>
@@ -139,8 +151,8 @@
 
       <!-- Arrows Nav -->
       <div class="lmpixels-arrows-nav">
-        <div class="lmpixels-arrow-right"><i class="lnr lnr-chevron-right"></i></div>
-        <div class="lmpixels-arrow-left"><i class="lnr lnr-chevron-left"></i></div>
+        <div class="lmpixels-arrow-right" id="arrow-right"><i class="lnr lnr-chevron-right"></i></div>
+        <div class="lmpixels-arrow-left" id="arrow-left"><i class="lnr lnr-chevron-left"></i></div>
       </div>
       <!-- End Arrows Nav -->
 
@@ -653,51 +665,22 @@
     </div>
   </div>
 
-  <script src="js/jquery.min.js"></script>
-  <script src="js/modernizr.custom.js"></script>
-  <script src="js/animating.js"></script>
+  <!-- External Scripts -->
+  <script src="js/jquery.min.js" defer></script>
+  <script src="js/modernizr.custom.js" defer></script>
+  <script src="js/animating.js" defer></script>
+  <script src="js/imagesloaded.pkgd.min.js" defer></script>
+  <script src="https://www.google.com/recaptcha/api.js" defer></script>
+  <script src="js/perfect-scrollbar.min.js" defer></script>
+  <script src="js/jquery.shuffle.min.js" defer></script>
+  <script src="js/masonry.pkgd.min.js" defer></script>
+  <script src="js/owl.carousel.min.js" defer></script>
+  <script src="js/jquery.magnific-popup.min.js" defer></script>
+  <script src="js/validator.js" defer></script>
+  <script src="js/main.js" defer></script>
 
-  <script src="js/imagesloaded.pkgd.min.js"></script>
-  <script src='https://www.google.com/recaptcha/api.js'></script>
-
-  <script src='js/perfect-scrollbar.min.js'></script>
-  <script src='js/jquery.shuffle.min.js'></script>
-  <script src='js/masonry.pkgd.min.js'></script>
-  <script src='js/owl.carousel.min.js'></script>
-  <script src="js/jquery.magnific-popup.min.js"></script>
-
-  <script src="js/validator.js"></script>
-  <script src="js/main.js"></script>
-
-  <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      const externalLinks = document.querySelectorAll('a.external-link');
-      externalLinks.forEach(link => {
-        link.addEventListener('click', function (event) {
-          event.stopPropagation(); // Prevent navigation interception
-        });
-      });
-    });
-  </script>
-
-  <script>
-    function copyEmailToClipboard(event) {
-      event.preventDefault();
-
-      const email = "caleb.tote@gmail.com";
-      navigator.clipboard.writeText(email)
-              .then(() => {
-                const contactLink = event.target.closest('a');
-                contactLink.innerHTML = '<span class="menu-icon fas fa-check"></span><span class="link-text">Copied!</span>';
-                setTimeout(() => {
-                  contactLink.innerHTML = '<span class="menu-icon fas fa-envelope"></span><span class="link-text">Email</span>';
-                }, 2000);
-              })
-              .catch(err => {
-                console.error('Failed to copy email: ', err);
-              });
-    }
-  </script>
+  <!-- Custom Script -->
+  <script src="scripts/main.js" defer></script>
 </body>
 
 </html>
