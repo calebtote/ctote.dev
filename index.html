@@ -64,6 +64,7 @@
         </div>
 
         <ul class="main-menu">
+          <!-- Primary Navigation -->
           <li class="active">
             <a href="#home" class="nav-anim" onclick="gtag('event', 'click', { 'event_category': 'Navigation', 'event_label': 'Home' });">
               <span class="menu-icon lnr lnr-home"></span>
@@ -82,36 +83,17 @@
               <span class="link-text">Resume</span>
             </a>
           </li>
-          <!--
+
+          <!-- Divider -->
+          <li class="menu-divider"></li>
+
+          <!-- Action Links -->
           <li>
-            <a href="#portfolio" class="nav-anim">
-              <span class="menu-icon lnr lnr-briefcase"></span>
-              <span class="link-text">Portfolio</span>
-            </a>
-          </li>
-          -->
-          <!--
-          <li>
-            <a href="#blog" class="nav-anim">
-              <span class="menu-icon lnr lnr-book"></span>
-              <span class="link-text">Blog</span>
-            </a>
-          </li>
-          -->
-          <li>
-            <a href="https://www.linkedin.com/in/calebtote" target="_blank" rel="noopener noreferrer" class="external-link"
-               onclick="gtag('event', 'click', { 'event_category': 'Button', 'event_label': 'LinkedIn-nav' });">
-              <span class="menu-icon fab fa-linkedin-in"></span>
-              <span class="link-text">LinkedIn<span class="external-icon">⧉</span></span>
-            </a>
-          </li>
-          <li>
-            <a href="#" class="email-link">
+            <a href="#" class="email-link" onclick="copyEmailToClipboard(event)">
               <span class="menu-icon fas fa-envelope"></span>
               <span class="link-text">Email</span>
             </a>
           </li>
-
         </ul>
 
         <!--

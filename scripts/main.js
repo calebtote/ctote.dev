@@ -28,9 +28,22 @@
             .writeText(email)
             .then(() => {
                 const contactLink = event.target.closest('a');
-                contactLink.innerHTML = '<span class="menu-icon fas fa-check"></span><span class="link-text">Copied!</span>';
+
+                // Temporarily disable hover/focus styles
+                contactLink.classList.add('copied');
+                contactLink.setAttribute('data-original-html', contactLink.innerHTML); // Backup original content
+
+                // Update content to show "Copied!"
+                contactLink.innerHTML = `
+                    <span class="menu-icon fas fa-check"></span>
+                    <span class="link-text copied-text">Copied!</span>
+                  `;
+
+                // Remove "Copied!" and restore original content after 2 seconds
                 setTimeout(() => {
-                    contactLink.innerHTML = '<span class="menu-icon fas fa-envelope"></span><span class="link-text">Email</span>';
+                    contactLink.innerHTML = contactLink.getAttribute('data-original-html');
+                    contactLink.removeAttribute('data-original-html');
+                    contactLink.classList.remove('copied');
                 }, 2000);
             })
             .catch((err) => console.error('Failed to copy email:', err));
@@ -58,34 +71,34 @@
         const backArrow = document.getElementById('arrow-left');
         const forwardArrow = document.getElementById('arrow-right');
 
-        function updateArrows() {
-            const currentHash = window.location.hash || '#home';
+        // Define sections in order
+        const sections = ['#home', '#about-me', '#resume'];
 
-            // Disable back arrow if on #home
-            if (currentHash === '#home') {
-                backArrow.classList.add('disabled');
-                backArrow.style.pointerEvents = 'none';
-                backArrow.style.opacity = '0.5';
-            } else {
-                backArrow.classList.remove('disabled');
-                backArrow.style.pointerEvents = 'auto';
-                backArrow.style.opacity = '1';
-            }
+        function getNextSection(currentHash, direction) {
+            const currentIndex = sections.indexOf(currentHash);
+            if (currentIndex === -1) return '#home'; // Default to home if hash is unrecognized
 
-            // Disable forward arrow if on #resume
-            if (currentHash === '#resume') {
-                forwardArrow.classList.add('disabled');
-                forwardArrow.style.pointerEvents = 'none';
-                forwardArrow.style.opacity = '0.5';
-            } else {
-                forwardArrow.classList.remove('disabled');
-                forwardArrow.style.pointerEvents = 'auto';
-                forwardArrow.style.opacity = '1';
-            }
+            // Calculate the next index based on the direction
+            const nextIndex =
+                direction === 'next'
+                    ? (currentIndex + 1) % sections.length // Move forward, cycle back to start
+                    : (currentIndex - 1 + sections.length) % sections.length; // Move backward, cycle to end
+            return sections[nextIndex];
         }
 
-        updateArrows();
-        window.addEventListener('hashchange', updateArrows);
+        function handleArrowClick(direction) {
+            const currentHash = window.location.hash || '#home';
+            const nextSection = getNextSection(currentHash, direction);
+            window.location.hash = nextSection; // Update the hash to navigate to the new section
+        }
+
+        // Attach event listeners to arrows
+        if (backArrow) {
+            backArrow.addEventListener('click', () => handleArrowClick('prev'));
+        }
+        if (forwardArrow) {
+            forwardArrow.addEventListener('click', () => handleArrowClick('next'));
+        }
 
         // Attach Copy Email Function to Button
         const contactLink = document.querySelector('.email-link');

@@ -301,6 +301,18 @@ input[type="submit"]:focus {
   }
 
   /* --- Navigation --- */
+  /* Stylish Minimal Divider */
+  .menu-divider {
+    width: 80%; /* Match the width of other menu items */
+    height: 2px; /* Thin divider */
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.3) 50%, rgba(255, 255, 255, 0.1) 100%);
+    margin: 7px auto; /* Space around the divider */
+    border-radius: 5px; /* Slight rounding for aesthetics */
+    box-shadow: 0 0 2px rgba(255, 255, 255, 0.2); /* Very minimal shadow for depth */
+  }
+
+
+
   ul.main-menu {
     position: absolute;
     padding: 15px 0;
